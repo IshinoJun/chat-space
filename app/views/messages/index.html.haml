@@ -1,0 +1,16 @@
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-name
+        Jun Ishino
+        %a.chat-side__user--new-group{:href => ""}
+          %i.fa.fa-pencil-square-o
+
+        %a.chat-side__user--edit-user{:href => ""}
+          %i.fa.fa-cog
+
+  .chat-side__groups
+    = render partial: "chat-side__group"
+
+
+
