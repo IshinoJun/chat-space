@@ -1,2 +1,4 @@
-@import "./variable";
 @import "./reset";
+@import "./config/variable";
+@import "./modules/*";
+@import "font-awesome";
