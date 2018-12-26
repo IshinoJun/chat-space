@@ -1,0 +1,52 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear  : both;
+  }
+}
+
+.chat-main {
+  height: 100vh;
+  width : calc(100% - 300px);
+  float : right;
+
+  // header
+  &__header {
+    height: 15%;
+    border-bottom: solid 1px $border-color;
+
+    &--group {
+      margin: 0 40px;
+
+      &-name{
+        color    : $black;
+        font-size: 20px;
+        padding  : 35px 0 15px;
+        float    : left;
+      }
+
+      &-edit-btn{
+        color    : $light-blue;
+        font-size: 15px;
+        padding  : 12.5px 20px;
+        border   : 1px solid $light-blue;
+        float    : right;
+        margin   : 28px 20px 0 20px;
+        text-decoration: none;
+      }
+      @include clearfix;
+    }
+
+    &-members{
+      color    : $silver-gray;
+      font-size: 12px;
+      float    : left;
+      margin   : 0 40px;
+    }
+  }
+
+
+}
+
+
