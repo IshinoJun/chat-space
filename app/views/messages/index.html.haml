@@ -29,7 +29,14 @@
       %i jj
 
   .chat-main__body
-
     .chat-main__body--messages-list
       = render partial: "chat-main__body--messages-list"
 
+  .chat-main__footer
+    %form.chat-main__footer-form
+      .chat-main__footer-body
+        %input.message{placeholder: "type a message",type: "text",name: "message[body]"}
+        %label.chat-file{for: "message_image"}
+          %input.image{type: "file",accept:"image/*",id:"message_image"}
+          %i.fa.fa-picture-o
+        %input.submit{type: "submit", value: "Send"}
