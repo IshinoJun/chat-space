@@ -1,0 +1,42 @@
+/notification
+= render partial: "notification"
+
+/ left-side
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-name
+        Jun Ishino
+      %a.chat-side__user--new-group{href: ""}
+        %i.fa.fa-pencil-square-o
+
+      %a.chat-side__user--edit-user{href: ""}
+        %i.fa.fa-cog
+
+  .chat-side__groups
+    = render partial: "chat-side__group"
+
+/ main
+.chat-main
+  .chat-main__header
+    .chat-main__header--group
+      .chat-main__header--group-name
+        sample group
+      %a.chat-main__header--group-edit-btn{href: ""}
+        edit
+    .chat-main__header-members
+      MEMBER:
+      %i jj
+
+  .chat-main__body
+    .chat-main__body--messages-list
+      = render partial: "chat-main__body--messages-list"
+
+  .chat-main__footer
+    %form.chat-main__footer-form
+      .chat-main__footer-body
+        %input.message{placeholder: "type a message",type: "text",name: "message[body]"}
+        %label.chat-file{for: "message_image"}
+          %input.image{type: "file",accept:"image/*",id:"message_image"}
+          %i.fa.fa-picture-o
+        %input.submit{type: "submit", value: "Send"}
