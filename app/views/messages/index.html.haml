@@ -7,8 +7,9 @@
     .chat-main__header--group
       .chat-main__header--group-name
         sample group
-      = link_to edit_group_path(current_user),class: "chat-main__header--group-edit-btn" do
-        edit
+
+      = link_to "edit","edit" ,class: "chat-main__header--group-edit-btn"
+
     .chat-main__header-members
       MEMBER:
       %i jj
