@@ -22,7 +22,7 @@
 
       &-name{
         color    : $black;
-        font-size: 20px;
+        font-size: 16px;
         padding  : 35px 0 15px;
         float    : left;
       }
@@ -33,7 +33,7 @@
         padding  : 12.5px 20px;
         border   : 1px solid $light-blue;
         float    : right;
-        margin   : 28px 20px 0 20px;
+        margin   : 28px 0px 0 0px;
         text-decoration: none;
       }
       @include clearfix;
