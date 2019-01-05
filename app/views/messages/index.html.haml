@@ -1,19 +1,5 @@
-
 / left-side
-.chat-side
-  .chat-side__user
-    .chat-side__user-content
-      .chat-side__user-name
-        = current_user.name
-
-      = link_to new_group_path , class: "chat-side__user--new-group" do
-        = fa_icon 'pencil-square-o', class: 'icon'
-
-      = link_to edit_user_path(current_user), class: "chat-side__user--edit-user" do
-        = fa_icon 'cog', class: 'icon'
-
-  .chat-side__groups
-    = render partial: "chat-side__group"
+= render 'shared/chat-side'
 
 / main
 .chat-main
@@ -21,7 +7,7 @@
     .chat-main__header--group
       .chat-main__header--group-name
         sample group
-      %a.chat-main__header--group-edit-btn{href: ""}
+      = link_to edit_group_path(current_user),class: "chat-main__header--group-edit-btn" do
         edit
     .chat-main__header-members
       MEMBER:
