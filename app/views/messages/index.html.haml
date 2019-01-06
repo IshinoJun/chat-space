@@ -16,13 +16,14 @@
 
   .chat-main__body
     .chat-main__body--messages-list
-      = render partial: "chat-main__body--messages-list"
+      = render @messages
 
   .chat-main__footer
-    %form.chat-main__footer-form
+    .form.chat-main__footer-form
       .chat-main__footer-body
-        %input.message{placeholder: "type a message",type: "text",name: "message[body]"}
-        %label.chat-file{for: "message_image"}
-          %input.image{type: "file",accept:"image/*",id:"message_image"}
-          %i.fa.fa-picture-o
-        %input.submit{type: "submit", value: "Send"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'message', placeholder: 'type a message'
+          = f.label :image, class: 'chat-file' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'image'
+          = f.submit 'Send', class: 'submit'
