@@ -1,5 +1,6 @@
 $(function(){
-  $(".new_message").on("submit",function(){
-
+  $('#new_message').on('submit',function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
   });
 });
