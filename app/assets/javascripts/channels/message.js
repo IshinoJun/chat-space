@@ -1,7 +1,8 @@
 $(function(){
   function buildHTML(message){
+    var imagePresent == null;
     if(message.image){
-      var imagePresent = `<img class="lower-message__image" src=${message.image}>`
+      imagePresent = `<img class="lower-message__image" src=${message.image}>`
     }
     var html = `<div class="chat-main__message">
                   <div class="chat-main__message-name">
@@ -28,6 +29,10 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.chat-main__body--messages-list').append(html)
     })
   });
 });
