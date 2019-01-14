@@ -1,12 +1,40 @@
 $(function(){
+  function appendUser(user) {
+    var html = `<div class="chat-group-user clearfix">
+                  <p class="chat-group-user__name">${user.mame}</p>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
+                </div>`
+    search_result.append(html);
+
+  }
+
+  function appendNoUser(message) {
+    var html = `<div class="chat-group-user clearfix">
+                  <p class="chat-group-user__name">${message}</p>`
+    search_result.append(html);
+
+  }
+
   $("#user-search-field").on("keyup",function(){
     var input = $("#user-search-field").val();
 
-    a.ajax({
+    $.ajax({
       type: 'GET',
-      url: '/users/index'
+      url: '/users/index',
       data: { keyword: input },
       dataType: 'json'
+    })
+
+    .done(function(users){
+      $(".user-search-result").empty();
+      if (users.length !==0) {
+        users.forEach(function(user){
+          appendUser(user);
+        });
+      }
+      else {
+        appendNoUser("一致するユーザーは見つかりません");
+      }
     })
   });
 });
