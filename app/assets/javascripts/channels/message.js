@@ -35,6 +35,7 @@ $(function(){
       $('.chat-main__body--messages-list').append(html);
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
       $('.message').val('');
+      $('.submit').prop('disabled', false);
     })
     .fail(function(){
       alert('error');
