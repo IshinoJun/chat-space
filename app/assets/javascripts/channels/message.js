@@ -34,6 +34,7 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main__body--messages-list').append(html);
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
+      $('.message').val('');
     })
     .fail(function(){
       alert('error');
