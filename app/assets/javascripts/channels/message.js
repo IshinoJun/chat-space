@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var imagePresent == null;
+    var imagePresent = "";
     if(message.image){
       imagePresent = `<img class="lower-message__image" src=${message.image}>`
     }
@@ -16,12 +16,12 @@ $(function(){
                     ${imagePresent}
                   </div>
                 </div>`
-    return html
+    return html;
   }
   $('#new_message').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -32,7 +32,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-main__body--messages-list').append(html)
+      $('.chat-main__body--messages-list').append(html);
+      $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
     })
   });
 });
