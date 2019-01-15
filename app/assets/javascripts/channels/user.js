@@ -58,5 +58,8 @@ $(function(){
     $(this).parent().remove();
   });
 
+  $(document).on("click",".user-search-remove",function(){
+    $(this).parent().remove();
+  });
 
 });
