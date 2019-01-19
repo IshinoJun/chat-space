@@ -55,6 +55,7 @@ $(function(){
         var html = buildHTML(message);
         $('.chat-main__body--messages-list').append(html);
       });
+      $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('error');
