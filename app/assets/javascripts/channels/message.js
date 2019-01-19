@@ -18,6 +18,7 @@ $(function(){
                 </div>`
     return html;
   }
+
   $('#new_message').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -41,4 +42,23 @@ $(function(){
       alert('error');
     })
   });
+
+  function autoreload(){
+    $.ajax({
+      type: 'GET',
+      url:'./messages',
+      dataType: 'json'
+    })
+    .done(function(data){
+      $('.chat-main__body--messages-list').empty();
+      $.each(data.messages, function(i, message){
+        var html = buildHTML(message);
+        $('.chat-main__body--messages-list').append(html);
+      });
+    })
+    .fail(function(){
+      alert('error');
+    });
+  }
+  setInterval(autoreload,5000);
 });
