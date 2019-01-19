@@ -31,8 +31,8 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(postMessage){
+      var html = buildHTML(postMessage);
       $('.chat-main__body--messages-list').append(html);
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
       $('.message').val('');
@@ -46,9 +46,9 @@ $(function(){
       url:'./messages',
       dataType: 'json'
     })
-    .done(function(data){
+    .done(function(getMessages){
       $('.chat-main__body--messages-list').empty();
-      $.each(data.messages, function(i, message){
+      $.each(getMessages.messages, function(i, message){
         var html = buildHTML(message);
         $('.chat-main__body--messages-list').append(html);
       });
