@@ -38,9 +38,6 @@ $(function(){
       $('.message').val('');
       $('.submit').prop('disabled', false);
     })
-    .fail(function(){
-      alert('error');
-    })
   });
 
   function autoreload(){
