@@ -48,9 +48,10 @@ $(function(){
     })
     .done(function(getMessages){
       $('.chat-main__body--messages-list').empty();
-      $.each(getMessages.messages, function(i, message){
+      $.each(getMessages, function(i, message){
         var html = buildHTML(message);
         $('.chat-main__body--messages-list').append(html);
+        console.log(message);
       });
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
     })
