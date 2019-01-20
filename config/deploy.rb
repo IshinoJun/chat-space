@@ -1,4 +1,4 @@
-lock '3.8.0'
+lock '3.11.0'
 
 set :application, 'chat-space'
 set :repo_url,  'git@github.com:IshinoJun/chat-space.git'
