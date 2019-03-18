@@ -55,9 +55,6 @@ $(function(){
       });
       $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast');
     })
-    .fail(function(){
-      alert('error');
-    });
   }
   setInterval(autoreload,5000);
 });
